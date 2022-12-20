@@ -3,24 +3,27 @@ const express = require('express');
 const app = express() 
 const tasks = require('./routers/tasks')
 const connectDB = require('./db/connect');
+const notFound = require('./middleware/notFound');
+const errorHandlerMiddleware = require('./middleware/errorHandler');
 require('dotenv').config()
+
 //middleware
 
 app.use(express.json())
 app.use(express.static('./public'))
+app.use(notFound)
+app.use(errorHandlerMiddleware)
 
 //routes
 app.use('/api/v1/tasks', tasks)
 
+//app.get('/api/v1/tasks) - get all tasks
+//app.post('/api/v1/tasks)  - post one task
+//app.get('/api/v1/tasks/:id) - get single task
+//app.patch'/api/v1/tasks/:id) - update a task
+//app.delete('/api/v1/tasks/:id) - delete a task
 
-
-//app.get('/api/v1/tasks)
-//app.post('/api/v1/tasks)
-//app.get('/api/v1/tasks/:id)
-//app.patch'/api/v1/tasks/:id)
-//app.delete('/api/v1/tasks/:id)
-
-const port = 5000;
+const port = process.env.PORT || 3000
 
 const start = async() => {
     try{

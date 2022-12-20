@@ -11,7 +11,7 @@ const TaskSchema = new mongoose.Schema({
     maxlength: [20, 'Name cannot be more than 20']
 },
     completed:{
-        type:Boolean,
+        type: Boolean,
         default: false}
 })
 
