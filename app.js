@@ -15,6 +15,8 @@ app.use(express.static('./public'))
 //routes
 app.use('/api/v1/tasks', tasks)
 
+
+//Pass the error handler middleware here
 app.use(notFound)
 app.use(errorHandlerMiddleware)
 
