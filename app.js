@@ -1,4 +1,3 @@
-require('./db/connect')
 const express = require('express');
 const app = express() 
 const tasks = require('./routers/tasks')
@@ -11,11 +10,13 @@ require('dotenv').config()
 
 app.use(express.json())
 app.use(express.static('./public'))
-app.use(notFound)
-app.use(errorHandlerMiddleware)
+
 
 //routes
 app.use('/api/v1/tasks', tasks)
+
+app.use(notFound)
+app.use(errorHandlerMiddleware)
 
 //app.get('/api/v1/tasks) - get all tasks
 //app.post('/api/v1/tasks)  - post one task
