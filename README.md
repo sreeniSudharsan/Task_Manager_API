@@ -26,7 +26,7 @@ Avenues:
 - Functionality. Checkbox when task is done 
 
 
-# USAGE
+# Usage
 
 - To start using the application, download or fork the code into your local repository on your system.
 - Ensure that Node and Node Package Manager are already installed on your system. If not, then go to https://nodejs.org/en/download/ and click the version applicable to you. 
